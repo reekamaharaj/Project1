@@ -5,3 +5,111 @@ cream: #fff5cf
 navy: #051533
 */
 
+
+body {
+    background-color: #051533;
+    color: #051533;
+}
+
+.navbar {
+    background-color: #fff5cf;
+    border-bottom: 3px solid #f7941e;
+    padding: 10px;
+}
+
+.container {
+
+}
+
+footer {
+    padding: 20px;
+    background-color: #fff5cf;
+    border-top: 3px solid #f7941e;
+    margin-top: 50px;
+}
+
+footer p{
+    color: #f7941e;
+
+}
+
+.main-content {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+.search-parameters {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.search-results {
+    flex: 1s;
+}
+
+.jumbotron {
+    margin-top: 50px;
+    background-color: #fff5cf;
+    padding: 30px;
+}
+
+h3 {
+    margin-top: 20px;
+    color: #051533;
+
+}
+
+.search-results {
+    padding: 0px;
+    margin-left: 15px;
+}
+
+.custom-checkbox {
+    display: block;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.search-parameters-card {
+    padding: 10px;
+}
+
+.recipe-card {
+    margin-bottom: 30px;
+}
+
+
+.btn-primary {
+    background-color: #f7941e;
+    border-color: #f7941e;
+}
+
+.btn-primary:hover {
+    background-color: #051533;
+    border-color: #051533;
+}
+
+.btn-primary:focus {
+    background-color: #051533;
+    border-color: #051533;
+    box-shadow: 0 0 0 0.2rem rgba(255,207,1,.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: #051533;
+    border-color: #051533;
+    box-shadow: 0 0 0 0.2rem rgba(255,207,1,.5);
+}
+
+#random-button {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#random-button:hover {
+    background-color: #ffcf01;
+}

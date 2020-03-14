@@ -12,6 +12,9 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,800&display=swap" rel="stylesheet">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -27,10 +30,9 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-light">
+  <nav class="navbar navbar-light ">
     <a class="navbar-brand" href="index.html">
       <img src="assets/images/foodle-logo.svg" height="50" class="d-inline-block align-top" alt="Foodle Logo">
-
     </a>
 
   </nav>
@@ -44,66 +46,86 @@
     <div class="row page-title-row">
       <h3>Your Favorite Recipes</h3>
     </div>
+
     <!-- row for the search parameters and results -->
 
     <div class="row favorite-cards col-12">
 
       <div class="favorite-recipe-card">
         <div class="card recipe-card" style="">
-          <img
-            src="https://images.immediate.co.uk/production/volatile/sites/2/2016/02/20501.jpg?webp=true&quality=90&crop=1px%2C328px%2C597px%2C257px&resize=597%2C253"
-            class="card-img-top" alt="...">
+          <div class="recipe-image">
+            <img src="https://www.loveandoliveoil.com/wp-content/uploads/2015/03/soy-sauce-noodlesH2.jpg"
+              class="card-img-top" alt="...">
+          </div>
           <div class="card-body">
             <h5 class="card-title">Recipe Name</h5>
             <p class="card-text">Quick description of the recipe</p>
             <a href="#" class="btn btn-primary">View Full Recipe</a>
-            <a href="#" class="btn add-to-favorites-button"><i class="fas fa-star"></i></a>
-          </div>
+            <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+              title="Remove from Favorites"><i class="fas fa-star"></i></a>
           </div>
         </div>
-      
-        <div class="favorite-recipe-card ">
-          <div class="card recipe-card" style="">
-            <img
-              src="https://images.immediate.co.uk/production/volatile/sites/2/2016/02/20501.jpg?webp=true&quality=90&crop=1px%2C328px%2C597px%2C257px&resize=597%2C253"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Recipe Name</h5>
-              <p class="card-text">Quick description of the recipe</p>
-              <a href="#" class="btn btn-primary">View Full Recipe</a>
-              <a href="#" class="btn add-to-favorites-button"><i class="fas fa-star"></i></a>
-            </div>
-            </div>
+      </div>
+
+      <div class="favorite-recipe-card">
+        <div class="card recipe-card" style="">
+          <div class="recipe-image"><img
+              src="https://www.thespruceeats.com/thmb/SJ78x54IXuWOj4zAujp14oLqmmM=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/_easy-red-lentil-and-tomato-soup-435639-hero-01-5bd0802c46e0fb005164176b.jpg"
+              class="card-img-top" alt="..."></div>
+          <div class="card-body">
+            <h5 class="card-title">Recipe Name</h5>
+            <p class="card-text">Quick description of the recipe</p>
+            <a href="#" class="btn btn-primary">View Full Recipe</a>
+            <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+              title="Remove from Favorites"><i class="fas fa-star"></i></a>
           </div>
+        </div>
+      </div>
 
-          <div class="favorite-recipe-card">
-            <div class="card recipe-card" style="">
-              <img
-                src="https://images.immediate.co.uk/production/volatile/sites/2/2016/02/20501.jpg?webp=true&quality=90&crop=1px%2C328px%2C597px%2C257px&resize=597%2C253"
-                class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Recipe Name</h5>
-                <p class="card-text">Quick description of the recipe</p>
-                <a href="#" class="btn btn-primary">View Full Recipe</a>
-                <a href="#" class="btn add-to-favorites-button"><i class="fas fa-star"></i></a>
-              </div>
-              </div>
-            </div>
-          
-            <div class="favorite-recipe-card ">
-              <div class="card recipe-card" style="">
-                <img
-                  src="https://images.immediate.co.uk/production/volatile/sites/2/2016/02/20501.jpg?webp=true&quality=90&crop=1px%2C328px%2C597px%2C257px&resize=597%2C253"
-                  class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Recipe Name</h5>
-                  <p class="card-text">Quick description of the recipe</p>
-                  <a href="#" class="btn btn-primary">View Full Recipe</a>
-                  <a href="#" class="btn add-to-favorites-button"><i class="fas fa-star"></i></a>
-                </div>
-                </div>
-              </div>
+      <div class="favorite-recipe-card">
+        <div class="card recipe-card" style="">
+          <div class="recipe-image"><img
+              src="https://cookieandkate.com/images/2019/02/best-shakshuka-recipe-3-768x1154.jpg"
+              class="card-img-top" alt="..."></div>
+          <div class="card-body">
+            <h5 class="card-title">Recipe Name</h5>
+            <p class="card-text">Quick description of the recipe</p>
+            <a href="#" class="btn btn-primary">View Full Recipe</a>
+            <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+              title="Remove from Favorites"><i class="fas fa-star"></i></a>
+          </div>
+        </div>
+      </div>
 
+      <div class="favorite-recipe-card">
+        <div class="card recipe-card" style="">
+          <div class="recipe-image"><img
+              src="https://www.foodiecrush.com/wp-content/uploads/2019/06/Greek-Salad-with-Grilled-Chicken-foodiecrush.com-005.jpg"
+              class="card-img-top" alt="..."></div>
+          <div class="card-body">
+            <h5 class="card-title">Recipe Name</h5>
+            <p class="card-text">Quick description of the recipe</p>
+            <a href="#" class="btn btn-primary">View Full Recipe</a>
+            <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+              title="Remove from Favorites"><i class="fas fa-star"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="favorite-recipe-card">
+        <div class="card recipe-card" style="">
+          <div class="recipe-image"><img
+              src="https://hips.hearstapps.com/hmg-prod/images/corn-salad-horizontal-jpg-1523569475.jpg"
+              class="card-img-top" alt="..."></div>
+          <div class="card-body">
+            <h5 class="card-title">Recipe Name</h5>
+            <p class="card-text">Quick description of the recipe</p>
+            <a href="#" class="btn btn-primary">View Full Recipe</a>
+            <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+              title="Remove from Favorites"><i class="fas fa-star"></i></a>
+          </div>
+        </div>
+      </div>
 
 
 

@@ -1,11 +1,6 @@
 # Foodle -- Project 1
 
-**Contributors**
-- Ashley
-- Ashtin 
-- Brandon 
-- Reeka
-
+**Built With**
 * HTML5
 * Bootstrap
 * CSS
@@ -13,4 +8,14 @@
 * jQuery
 * APIs
 
-![Foodle Logo]
+**Contributors**
+- Ashley
+- Ashtin 
+- Brandon 
+- Reeka
+
+
+(https://reekamaharaj.github.io/Project1/)
+
+![Foodle Logo](https://reekamaharaj.github.io/Project1/assets/images/foodle-logo.svg)
+

@@ -6,19 +6,23 @@ navy: #051533
 */
 
 
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+}
+
 body {
     background-color: #051533;
     color: #051533;
+    font-family: 'Muli', sans-serif;
+
 }
 
 .navbar {
     background-color: #fff5cf;
     border-bottom: 3px solid #f7941e;
-    padding: 10px;
-}
-
-.container {
-
+    padding: 20px;
 }
 
 footer {
@@ -93,16 +97,25 @@ h3 {
     border-color: #051533;
 }
 
-.btn-primary:focus {
+.btn:focus, .btn:active {
     background-color: #051533;
     border-color: #051533;
     box-shadow: 0 0 0 0.2rem rgba(255,207,1,.5);
+    outline: none !important;
+}
+
+.btn-primary:focus, .btn-primary:active {
+    background-color: #051533;
+    border-color: #051533;
+    box-shadow: 0 0 0 0.2rem rgba(255,207,1,.5) !important;
+    outline: none !important;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active {
     background-color: #051533;
     border-color: #051533;
-    box-shadow: 0 0 0 0.2rem rgba(255,207,1,.5);
+    box-shadow: 0 0 0 0.2rem rgba(255,207,1,.5) !important;
+    outline: none !important;
 }
 
 #random-button {
@@ -112,4 +125,124 @@ h3 {
 
 #random-button:hover {
     background-color: #ffcf01;
+}
+
+.add-to-favorites-button {
+    color: #ffcf01;
+}
+
+.add-to-favorites-button:focus {
+    background-color: white;
+    border: none;
+}
+
+.recipe-image {
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color: #051533;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.recipe-image img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #051533;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.page-title-row h3 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.favorite-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(460px, 1fr));
+}
+
+.favorite-recipe-card {
+    margin: 0 30px 0 0px;
+}
+
+.col-6 {
+    padding: 0;
+}
+
+h5 {
+    font-weight: 800;
+    size: 12px;
+    padding-top: 10px;
+}
+
+/* highlight when typing in ingredients */
+.form-control:focus {
+    color: #051533;
+    background-color: #fff;
+    border-color: #ffcf01;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255,207,1,.5);
+}
+
+.custom-switch {
+    margin-bottom: 15px;
+}
+
+.custom-control-label::before {
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    content: "";
+    background-color: #fff;
+    border: #adb5bd solid 1px;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #f7941e;
+    background-color: #f7941e;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before, .tooltip.bs-tooltip-left .arrow::before {
+    right: 0;
+    margin-top: -3px;
+    content: "";
+    border-width: 5px 0 5px 5px;
+    border-left-color: #051533;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=right] .arrow::before, .tooltip.bs-tooltip-right .arrow::before {
+    margin-top: -3px;
+    content: "";
+    border-width: 5px 5px 5px 0;
+    border-right-color: #051533;
+}
+
+.tooltip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #fff;
+    text-align: center;
+    background-color: #051533;
+    border-radius: .25rem;
+}
+
+.card {
+    border: 1px solid #051533;
+    border-radius: 5px;
 }

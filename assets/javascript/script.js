@@ -110,3 +110,9 @@ $("#random-button").on("click", function(event){
 //         console.log(response);
 //     });
 // };
+
+//Bootstrap Tooltips
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+

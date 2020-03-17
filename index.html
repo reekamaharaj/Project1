@@ -8,12 +8,15 @@
   <!-- favicon -->
   <link rel="icon" type="image/png" href="assets/images/foodle-icon.ico" />
 
-  <!-- Font Awesome -->
-  <script src="https://use.fontawesome.com/19a5d3fddb.js"></script>
-
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Foodle CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -39,7 +42,7 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Favorites</a>
+          <a class="nav-link" href="favorites.html">Favorites</a>
 
         </li>
       </ul>
@@ -67,53 +70,54 @@
         <div class="search-parameters">
           <button type="button" class="btn btn-primary" id="random-button">Pick Random Recipe</button>
           <div class="card search-parameters-card">
-            
-            <h2>Filters</h2>
-          <h5>Diet Type</h5>
-          <div class="custom-control custom-checkbox">
-            <p><input type="checkbox" class="custom-control-input" id="balanced-diet">
-              <label class="custom-control-label" for="balanced-diet">Balanced Diet</label></p>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <p><input type="checkbox" class="custom-control-input" id="high-fiber">
-              <label class="custom-control-label" for="high-fiber">High Fiber</label></p>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <p><input type="checkbox" class="custom-control-input" id="low-carb">
-              <label class="custom-control-label" for="low-carb">Low Carb</label></p>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <p><input type="checkbox" class="custom-control-input" id="low-fat">
-              <label class="custom-control-label" for="low-fat">Low Fat</label></p>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <p><input type="checkbox" class="custom-control-input" id="low-sodium">
-              <label class="custom-control-label" for="low-sodium">Low Sodium</label></p>
-          </div>
 
-          <h5>Ingredients</h5>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ingredient 1" aria-label="Username"
-              aria-describedby="basic-addon1">
+            <h2>Filters</h2>
+            <h5>Diet Type</h5>
+
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="balanced-diet-toggle">
+              <label class="custom-control-label" for="balanced-diet-toggle">Balanced Diet</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="high-fiber-toggle">
+              <label class="custom-control-label" for="high-fiber-toggle">High Fiber</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="low-carb-toggle">
+              <label class="custom-control-label" for="low-carb-toggle">Low Carb</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="low-fat-toggle">
+              <label class="custom-control-label" for="low-fat-toggle">Low Fat</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="low-sodium-toggle">
+              <label class="custom-control-label" for="low-sodium-toggle">Low Sodium</label>
+            </div>
+
+            <h5>Ingredients</h5>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Ingredient 1" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Ingredient 2" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Ingredient 3" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Ingredient 4" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Ingredient 5" aria-label="Username"
+                aria-describedby="basic-addon1">
+            </div>
+            <button type="button" class="btn btn-primary">Search</button>
           </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ingredient 2" aria-label="Username"
-              aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ingredient 3" aria-label="Username"
-              aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ingredient 4" aria-label="Username"
-              aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ingredient 5" aria-label="Username"
-              aria-describedby="basic-addon1">
-          </div>
-          <button type="button" class="btn btn-primary">Search</button>
-        </div>
         </div>
 
 
@@ -121,70 +125,90 @@
 
           <!-- card for a search result -->
           <div class="card recipe-card" style="">
-            <img src="https://images.immediate.co.uk/production/volatile/sites/2/2016/02/20501.jpg?webp=true&quality=90&crop=1px%2C328px%2C597px%2C257px&resize=597%2C253" class="card-img-top" alt="...">
+            <div class="recipe-image"><img
+                src="https://www.loveandoliveoil.com/wp-content/uploads/2015/03/soy-sauce-noodlesH2.jpg"
+                class="card-img-top" alt="..."></div>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div></div>
-
-            <!-- card for a search result -->
-            <div class="card recipe-card" style="">
-              <img src="https://images.immediate.co.uk/production/volatile/sites/2/2016/02/20501.jpg?webp=true&quality=90&crop=1px%2C328px%2C597px%2C257px&resize=597%2C253" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div></div>
-
-              <!-- card for a search result -->
-              <div class="card recipe-card" style="">
-                <img src="https://images.immediate.co.uk/production/volatile/sites/2/2016/02/20501.jpg?webp=true&quality=90&crop=1px%2C328px%2C597px%2C257px&resize=597%2C253" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div></div>
-
-              </div>
+              <h5 class="card-title">Recipe Name</h5>
+              <p class="card-text">Quick description of the recipe</p>
+              <a href="#" class="btn btn-primary">View Full Recipe</a>
+              <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+                title="Add to Favorites"><i class="far fa-star"></i></a>
 
             </div>
-
           </div>
 
+          <!-- card for a search result -->
+          <div class="card recipe-card" style="">
+            <div class="recipe-image"><img
+                src="https://www.thespruceeats.com/thmb/SJ78x54IXuWOj4zAujp14oLqmmM=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/_easy-red-lentil-and-tomato-soup-435639-hero-01-5bd0802c46e0fb005164176b.jpg"
+                class="card-img-top" alt="..."></div>
+            <div class="card-body">
+              <h5 class="card-title">Recipe Name</h5>
+              <p class="card-text">Quick description of the recipe</p>
+              <a href="#" class="btn btn-primary">View Full Recipe</a>
+              <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+                title="Add to Favorites"><i class="far fa-star"></i></a>
+            </div>
+          </div>
+
+          <!-- card for a search result -->
+          <div class="card recipe-card" style="">
+            <div class="recipe-image"><img
+                src="https://cookieandkate.com/images/2019/02/best-shakshuka-recipe-3-768x1154.jpg"
+                class="card-img-top" alt="..."></div>
+            <div class="card-body">
+              <h5 class="card-title">Recipe Name</h5>
+              <p class="card-text">Quick description of the recipe</p>
+              <a href="#" class="btn btn-primary">View Full Recipe</a>
+              <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
+                title="Add to Favorites"><i class="far fa-star"></i></a>
+            </div>
+          </div>
 
         </div>
 
+      </div>
 
-        <footer class="text-center">
-          <p>v 1.0&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&copy; 2020</p>
-        </footer>
-</div>
+    </div>
 
 
+  </div>
 
 
+  <footer class="text-center">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/images/foodle-logo.svg" height="50" class="d-inline-block align-top" alt="Foodle Logo">
+    </a>  </footer>
+  </div>
 
-        <!-- JS, Popper.js, and jQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-          crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-          crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-          crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 
-        <!-- Firebase Core JavaScript Link -->
-        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-        <!-- Specific Firebase products we want (Database) -->
-        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-        <script src="assets/javascript/script.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/bafee80b27.js" crossorigin="anonymous"></script>
+
+  <!-- Firebase Core JavaScript Link -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <!-- Specific Firebase products we want (Database) -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+  <script src="assets/javascript/script.js"></script>
 
 </body>
 

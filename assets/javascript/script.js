@@ -6,6 +6,57 @@ let apiKey = "633d97f5523a4f86a9b9fc20e109b345";
 let ingredients = "carrot";
 let idNum = "1051408"
 
+// $("#random").on("click", function(){
+//     event.preventDefault();
+//     var randomfood=recipes[Math.floor(Math.random()*5)]
+//     console.log(randomfood);
+//     $("#card-title").html(randomfood);
+// });
+
+$("#search-button").on("click", function(){
+    
+    event.preventDefault();
+
+    var ingredientOne=$("#ingredient-input").val().trim();  
+    $("#ingredient-input").val("");
+    var ingredientTwo=$("#ingredient2-input").val().trim();
+    $("#ingredient2-input").val("");
+    var ingredientThree=$("#ingredient3-input").val().trim();
+    $("#ingredient3-input").val("");
+    var ingredientFour=$("#ingredient4-input").val().trim();
+    $("#ingredient4-input").val("");
+    var ingredientFive=$("#ingredient5-input").val().trim();
+    $("#ingredient5-input").val("");
+    var balanced=$("#balanced-diet").val();
+    $("#balanced-diet").val("");
+    var fiberHigh=$("#high-fiver").val();
+    $("#high-fiber").val();
+    var lowCarb=$("#low-carb").val();
+    $("#low-carb").val();
+    var lowFAt=$("#low-fat").val();
+    $("#low-fat").val();
+    var lowSodium=$("#low-sodium").val();
+    $("#low-sodium").val();
+
+    for (var i= 0; i < recipes.length; i++) {
+        var keyRecipe = recipes[i];
+        if(ingredientOne && ingredientTwo && ingredientThree && ingredientFour && ingredientFive === keyRecipe){
+            $("#card-title").html(keyRecipe);
+            console.log(keyRecipe);
+        };
+    };
+
+    for (var j=0; j<nutrition.length; j++ ){
+        var keyNutrients=nutrition[i];
+        if(balanced || fiberHigh || lowCarb || lowFAt || lowSodium === keyNutrients){
+            return keyNutrients;
+        };
+        $("#card-title").append(keyNutrients);
+    };
+
+});
+
+
 //get recipes
 function getRecipesById(){
     var settings = {
@@ -53,6 +104,7 @@ function randomRecipe(){
 
     $.ajax(settings).done(function (response) {
         console.log(response);
+        $("#card-title").html(response);
     });
 };
 

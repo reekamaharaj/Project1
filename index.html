@@ -98,25 +98,25 @@
             <h5>Ingredients</h5>
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Ingredient 1" aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" id="ingredient-input">
             </div>
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Ingredient 2" aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" id="ingredient2-input">
             </div>
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Ingredient 3" aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" id="ingredient3-input">
             </div>
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Ingredient 4" aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" id="ingredient4-input">
             </div>
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Ingredient 5" aria-label="Username"
-                aria-describedby="basic-addon1">
+                aria-describedby="basic-addon1" id="ingredient5-input">
             </div>
-            <button type="button" class="btn btn-primary">Search</button>
+            <button type="button" class="btn btn-primary" id="search-button">Search</button>
           </div>
         </div>
 
@@ -159,7 +159,7 @@
                 class="card-img-top" alt="..."></div>
             <div class="card-body">
               <h5 class="card-title">Recipe Name</h5>
-              <p class="card-text">Quick description of the recipe</p>
+              <p class="card-text"id="card-t">Quick description of the recipe</p>
               <a href="#" class="btn btn-primary">View Full Recipe</a>
               <a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
                 title="Add to Favorites"><i class="far fa-star"></i></a>
@@ -187,7 +187,6 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/js/mdb.min.js"></script>
 
   <!-- JS, Popper.js, and jQuery -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -203,6 +202,7 @@
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/bafee80b27.js" crossorigin="anonymous"></script>
+  
 
   <!-- Firebase Core JavaScript Link -->
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>

@@ -1,3 +1,13 @@
+$("#list").on("click", function(event){
+    whisk.queue.push(function() {
+        whisk.shoppingList.viewList({
+            styles: {
+                type: 'modal',
+            },
+        });
+    });
+})
+
 //random recipe button
 $("#random-button").on("click", function(event) {
     randomRecipe();
@@ -36,19 +46,19 @@ $("#search-button").on("click", function() {
 
     var ingredientOne = $("#ingredient-input").val().trim();
     $("#ingredient-input").val("");
-  
+
     var ingredientTwo = $("#ingredient2-input").val().trim();
     $("#ingredient2-input").val("");
-  
+
     var ingredientThree = $("#ingredient3-input").val().trim();
     $("#ingredient3-input").val("");
-  
+
     var ingredientFour = $("#ingredient4-input").val().trim();
     $("#ingredient4-input").val("");
-  
+
     var ingredientFive = $("#ingredient5-input").val().trim();
     $("#ingredient5-input").val("");
-  
+
     var glutenfree = $("#gluten-free-toggle").val();
     $("#glutenfree").val("");
 
@@ -129,18 +139,3 @@ function randomRecipe() {
 
     });
 }
-
-//whisk
-// $.ajax({
-//     url: "https://graph.whisk.com/v1/lists",
-//     method: "GET",
-//     headers: {
-//         "Accept": "application/json",
-//         "Content-Type": "application/json",
-//         "Authorization": "Bearer " + "VGTCDebdmPO7aDx9Rm4TCeXo71F5LszWVTR8HNJtR323KG1suU9LaqlrvuK2F5SG"
-
-//     }
-
-// }).then(function(response){
-//     console.log(response);
-// })

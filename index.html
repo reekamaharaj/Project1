@@ -107,17 +107,14 @@
 				<div class="col-8 search-results">
 					<!-- card for a search result -->
 					<div class="card recipe-card">
-						<div class="recipe-image"><img
-								src="https://www.loveandoliveoil.com/wp-content/uploads/2015/03/soy-sauce-noodlesH2.jpg"
-								class="card-img-top" alt="..."></div>
+						<div class="recipe-image"></div>
 						<div class="card-body">
-							<h5 class="card-title" id="title">Recipe Name</h5>
-							<p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span
-									id="ready-time"></span> minutes.</p>
+							<h5 class="card-title" id="title"></h5>
+							<p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span id="ready-time"></span> minutes.</p>
 							<p>Health Score <span id="health-score"></span></p>
-							<p class="card-text" id="summary">Quick description of the recipe</p>
+							<p class="card-text" id="summary"></p>
 							<p id="card-t"></p>
-							<a href="#" class="btn btn-primary" id="fullRecipe">View Full Recipe</a>
+							<p id="fullRecipe"></p>
 							<a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
 								title="Add to Favorites"><i class="far fa-star"></i></a>
 						</div>
@@ -199,8 +196,8 @@
 
 	<script async="true" src="https://cdn.whisk.com/sdk/shopping-list.js" type="text/javascript"></script>
 	<script src="assets/javascript/script.js"></script>
-
-
 </body>
 
 </html>
+
+<!-- On the first recipe card, I took out the data so that when running tests the data was what was pulled. We can either figure out how to have default recipes shown, or we could have the recipe cards hidden until a search is run. We still need to get the favorites buttons to save data to firebase and display things on the page. Most things now are backend. We could try and split that up so we can have a finished project.  -->

@@ -147,6 +147,7 @@ function searchComplex(){
         method: "GET"
     }).then(function(response){ 
         console.log(response);
+        $("#recipeCards").html("");
         for (var i = 0; i < response.results.length; i++) {
             idNum = response.results[i].id;
             getRecipesById();
@@ -162,14 +163,13 @@ function getRecipesById() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
-        $("#title").html(response[i].title);
-        $("#recipe-image").html(response[i].image);
-        $("#ready-time").html(response[i].readyInMinutes);
-        $("#health-score").html(response[i].healthScore);
-        $("#summary").html(response[i].summary);
-        $("#fullRecipe").html("<a href='" + response[i].sourceUrl  + "' class='btn btn-primary' id='fullRecipe'>View Full Recipe</a>");
+        recipeImg = response[0].image;
+        title = response[0].title;
+        readyInMinutes = response[0].readyInMinutes;
+        healthScore = response[0].healthScore;
+        summary = response[0].summary;
+        sourceUrl = response[0].sourceUrl;
         createRecipeCard();
-        valueReset();
     });
 }
 
@@ -182,6 +182,7 @@ function randomRecipe() {
         url: queryURL,
         method: "GET"
     }).then(function(response){
+        $("#recipeCards").html("");
         recipeImg = response.recipes[0].image;
         title = response.recipes[0].title;
         readyInMinutes = response.recipes[0].readyInMinutes;
@@ -207,7 +208,8 @@ function valueReset(){
 }
 
 function createRecipeCard(){
+    console.log("this was called");
     recipeCard = '<div class="card recipe-card"><div id="recipe-image"><img src="' + recipeImg + '"class="card-img-top" alt="Picture of Recipe"></div><div class="card-body"><h5 class="card-title" id="title">' + title + '</h5><p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span id="ready-time">' + readyInMinutes + '</span> minutes.</p><p>Health Score <span id="health-score">' + healthScore + '</span></p><p class="card-text" id="summary">' + summary + '</p><p id="fullRecipe"></p><a href="' + sourceUrl + '" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"title="Add to Favorites"><i class="far fa-star"></i></a></div>'
-    $("#recipeCards").html(recipeCard);
+    $("#recipeCards").append(recipeCard);
     valueReset();
 }

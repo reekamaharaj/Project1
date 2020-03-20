@@ -34,15 +34,25 @@ firebase.initializeApp(firebaseConfig);
 var data = firebase.database();
 
 //variables
-let dietType = [ ];
-let number = 1;
-let apiKey = "633d97f5523a4f86a9b9fc20e109b345";
-let ingredient = "carrot";
-let idNum = "1051408";
-let ingredients = [ ];
+var dietType = [ ];
+var number = 1;
+var apiKey = "633d97f5523a4f86a9b9fc20e109b345";
+var ingredient = "carrot";
+var idNum = "1051408";
+var ingredients = [ ];
+var title;
+var image;
+var search;
+
+
+
 
 $("#search-button").on("click", function() {
     event.preventDefault();
+
+    search=$("#search-box").val().trim();
+    $("#search-box").val("");
+
 
     var ingredientOne = $("#ingredient-input").val().trim();
     $("#ingredient-input").val("");
@@ -75,6 +85,7 @@ $("#search-button").on("click", function() {
     $("#paleo").val("");
 
     ingredients.push(
+        search,
         ingredientOne,
         ingredientTwo,
         ingredientThree,
@@ -89,38 +100,65 @@ $("#search-button").on("click", function() {
         paleo
     )
     searchComplex();
+    
 });
 
 //search recipe complex
 function searchComplex(){
-    var queryURL = "https://api.spoonacular.com/recipes/complexSearch?query=soup&diet=vegan&includeIngredients=tomato&intolerances=peanut%2Cshellfish&ranking=2&number=2&apiKey=" + apiKey;
+    var queryURL = "https://api.spoonacular.com/recipes/complexSearch?query=" + ingredients +  "2&apiKey=" + apiKey;
 
     $.ajax({
         url: queryURL,
         method: "GET"
-    });
-    console.log(response);
+    }).then(function(response){
+
+        console.log(response);
     
-    $("#title").append(response.results[0].title);
-    $(".recipe-image").append(response.results[0].image);
-    $("#fullRecipe").append(response.results[0].sourceURL);
-    idNum = response.results[0].id;
-    getRecipesById();
-}
+        $("#title").append(response.results[0].title);
+        $(".recipe-image").append(response.results[0].image);
+      
+        $("#title2").append(response.results[1].title);
+        $(".recipe-image").append(response.results[1].image);
+        $("#fullRecipe2").append(response.results[1].sourceURL);
+        $("#title3").append(response.results[2].title);
+        $(".recipe-image").append(response.results[2].image);
+        $("#fullRecipe3").append(response.results[2].sourceURL);
+        idNum = response.results[0].id;
+        getRecipesById();
+         
+       
+
+      
+  
+    
+    });
+
+
+
+   
+   
+};
 
 //get recipes
-function getRecipesById() {
-    var queryURL ="https://api.spoonacular.com/recipes/" + idNum +"/information?apiKey=" + apiKey;
 
+function getRecipesById() {
+    var queryURL ="https://api.spoonacular.com/recipes/informationBulk?ids=" + idNum + "&apiKey=" + apiKey;
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
         console.log(response);
-        $("#ready-time").html(response.results[0].readyInMinutes);
-        $("#health-score").append(response.results[0].healthScore);
+        $("#ready-time").html(response[0].readyInMinutes);
+        $("#health-score").append(response[0].healthScore);
+        $("#fullRecipe").append(response[0].sourceUrl);
+        $("#summary").append(response[0].summary);
+        $("#fullRecipe").html("<a href='" + response[0].sourceUrl  + "' class='btn btn-primary' id='fullRecipe'>View Full Recipe</a>");
+
     });
+    
 }
+
+
 
 // random recipe
 function randomRecipe() {
@@ -133,9 +171,13 @@ function randomRecipe() {
         console.log(response);
         $("#ready-time").html(response.recipes[0].readyInMinutes);
         $("#title").append(response.recipes[0].title);
-        $(".recipe-image").append(response.results[0].image);
-        $("#fullRecipe").append(response.recipes[0].sourceURL);
+        $(".recipe-image").append(response.recipes[0].image);
         $("#health-score").append(response.recipes[0].healthScore);
+        $("#fullRecipe").html("<a href='" + response.recipes[0].sourceUrl  + "' class='btn btn-primary' id='fullRecipe'>View Full Recipe</a>");
+        $("#summary").append(response.recipes[0].summary);
+        
 
     });
+    
 }
+

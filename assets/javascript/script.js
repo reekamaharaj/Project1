@@ -61,7 +61,8 @@ var data = firebase.database();
 //variables
 //for search query
 var number = 2;
-var apiKey = "633d97f5523a4f86a9b9fc20e109b345";
+// var apiKey = "633d97f5523a4f86a9b9fc20e109b345";
+var apiKey = "686bf77ea40940eca86366d063e7137d";
 var idNum;
 var ingredientsEntered = [ ];
 var ingredients;
@@ -86,7 +87,7 @@ $("#search-button").on("click", function() {
 
     var ingredientOne = $("#ingredient-input").val().trim();
     $("#ingredient-input").val("");
-
+    
     var ingredientTwo = $("#ingredient2-input").val().trim();
     $("#ingredient2-input").val("");
 
@@ -98,8 +99,6 @@ $("#search-button").on("click", function() {
 
     var ingredientFive = $("#ingredient5-input").val().trim();
     $("#ingredient5-input").val("");
-
-    $("#ingredient-input input[type=text]")
 
     dietType = [ ];
     $.each($("input[name='dietType']:checked"),
@@ -148,7 +147,7 @@ function searchComplex(){
         method: "GET"
     }).then(function(response){
         console.log(response);
-        for (const i in response) {
+        for (var i; i < response.length; i++) {
             idNum = response.results[i].id;
             //get recipes
             function getRecipesById() {
@@ -175,13 +174,12 @@ function searchComplex(){
 // random recipe
 //will generate one random recipe and display it on the page
 function randomRecipe() {
-    var queryURL = "https://api.spoonacular.com/recipes/random?number=" + number + "&apiKey=" + apiKey;
+    var queryURL = "https://api.spoonacular.com/recipes/random?number=1&apiKey=" + apiKey;
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response);
         recipeImg = response.recipes[0].image;
         title = response.recipes[0].title;
         readyInMinutes = response.recipes[0].readyInMinutes;

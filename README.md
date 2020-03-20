@@ -20,7 +20,7 @@ Our application lets users input the food items they have at home and returns re
 # Acknowledgements 
 - Our instructor and TA's for their guidance and support
 - The Coding Bootcamp -- University of Texas, Austin
-- Food - Nutrition API 
+- Spoonacular API 
 - Whisk API 
 
 

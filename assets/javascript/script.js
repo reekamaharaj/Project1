@@ -145,31 +145,33 @@ function searchComplex(){
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response){
+    }).then(function(response){ 
         console.log(response);
-        for (var i; i < response.length; i++) {
+        for (var i = 0; i < response.results.length; i++) {
             idNum = response.results[i].id;
-            //get recipes
-            function getRecipesById() {
-                var queryURL ="https://api.spoonacular.com/recipes/informationBulk?ids=" + idNum + "&apiKey=" + apiKey;
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                }).then(function(response) {
-                    console.log(response);
-                    $("#title").html(response[i].title);
-                    $("#recipe-image").html(response[i].image);
-                    $("#ready-time").html(response[i].readyInMinutes);
-                    $("#health-score").html(response[i].healthScore);
-                    $("#summary").html(response[i].summary);
-                    $("#fullRecipe").html("<a href='" + response[i].sourceUrl  + "' class='btn btn-primary' id='fullRecipe'>View Full Recipe</a>");
-                    createRecipeCard();
-                    valueReset();
-                });
-            }
+            getRecipesById();
         }
     });
 };
+
+//get recipes
+function getRecipesById() {
+    var queryURL ="https://api.spoonacular.com/recipes/informationBulk?ids=" + idNum + "&apiKey=" + apiKey;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        $("#title").html(response[i].title);
+        $("#recipe-image").html(response[i].image);
+        $("#ready-time").html(response[i].readyInMinutes);
+        $("#health-score").html(response[i].healthScore);
+        $("#summary").html(response[i].summary);
+        $("#fullRecipe").html("<a href='" + response[i].sourceUrl  + "' class='btn btn-primary' id='fullRecipe'>View Full Recipe</a>");
+        createRecipeCard();
+        valueReset();
+    });
+}
 
 // random recipe
 //will generate one random recipe and display it on the page
@@ -206,6 +208,6 @@ function valueReset(){
 
 function createRecipeCard(){
     recipeCard = '<div class="card recipe-card"><div id="recipe-image"><img src="' + recipeImg + '"class="card-img-top" alt="Picture of Recipe"></div><div class="card-body"><h5 class="card-title" id="title">' + title + '</h5><p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span id="ready-time">' + readyInMinutes + '</span> minutes.</p><p>Health Score <span id="health-score">' + healthScore + '</span></p><p class="card-text" id="summary">' + summary + '</p><p id="fullRecipe"></p><a href="' + sourceUrl + '" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"title="Add to Favorites"><i class="far fa-star"></i></a></div>'
-    $("#recipeCards").append(recipeCard);
+    $("#recipeCards").html(recipeCard);
     valueReset();
 }

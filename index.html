@@ -34,6 +34,8 @@
 				<li class="nav-item">
 					<a class="nav-link" href="favorites.html">Favorites</a>
 				</li>
+				<li>
+					<button id="list">Make a shopping list</button></li>
 			</ul>
 		</div>
 	</nav>
@@ -56,108 +58,66 @@
 						<h2>Filters</h2>
 						<h5>Search</h5>
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="Search" aria-label="Username"
+							<input type="text" class="form-control" placeholder="Noodles" aria-label="Username"
 								aria-describedby="basic-addon1" id="search-box">
 						</div>
 						<h5>Diet Type</h5>
 						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input" id="gluten-free-toggle">
-							<label class="custom-control-label" for="gluten-free-toggle">Gluten-Free</label>
+							<input type="checkbox" class="custom-control-input" id="gluten-free-toggle" name="dietType"
+								value="glutenFree">
+							<label class="custom-control-label" for="gluten-free-toggle">
+								Gluten-Free</label>
 						</div>
 						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input" id="ketogenic-toggle">
-							<label class="custom-control-label" for="ketogenic-toggle">Ketogenic</label>
+							<input type="checkbox" class="custom-control-input" id="ketogenic-toggle" name="dietType"
+								value="ketogenic">
+							<label class="custom-control-label" for="ketogenic-toggle">
+								Ketogenic</label>
 						</div>
 						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input" id="vegetarian-toggle">
+							<input type="checkbox" class="custom-control-input" id="vegetarian-toggle" name="dietType"
+								value="vegetarian">
 							<label class="custom-control-label" for="vegetarian-toggle">Vegetarian</label>
 						</div>
 						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input" id="vegan-toggle">
-							<label class="custom-control-label" for="vegan-toggle">Vegan</label>
+							<input type="checkbox" class="custom-control-input" id="vegan-toggle" name="dietType"
+								value="vegan">
+							<label class="custom-control-label" for="vegan-toggle">
+								Vegan</label>
 						</div>
 						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input" id="paleo-toggle">
-							<label class="custom-control-label" for="paleo-toggle">Paleo</label>
+							<input type="checkbox" class="custom-control-input" id="paleo-toggle" name="dietType"
+								value="paleo">
+							<label class="custom-control-label" for="paleo-toggle">
+								Paleo</label>
 						</div>
 						<h5>Ingredients</h5>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="Ingredient 1" aria-label="Username"
-								aria-describedby="basic-addon1" id="ingredient-input">
+								aria-describedby="basic-addon1" class="ingredient-input">
 						</div>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="Ingredient 2" aria-label="Username"
-								aria-describedby="basic-addon1" id="ingredient2-input">
+								aria-describedby="basic-addon1" class="ingredient-input">
 						</div>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="Ingredient 3" aria-label="Username"
-								aria-describedby="basic-addon1" id="ingredient3-input">
+								aria-describedby="basic-addon1" class="ingredient-input">
 						</div>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="Ingredient 4" aria-label="Username"
-								aria-describedby="basic-addon1" id="ingredient4-input">
+								aria-describedby="basic-addon1" class="ingredient-input">
 						</div>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="Ingredient 5" aria-label="Username"
-								aria-describedby="basic-addon1" id="ingredient5-input">
+								aria-describedby="basic-addon1" class="ingredient-input">
 						</div>
 						<button type="button" class="btn btn-primary" id="search-button">Search</button>
 					</div>
 				</div>
-				<div class="col-8 search-results">
-					<!-- card for a search result -->
-					<div class="card recipe-card">
-						<div class="recipe-image"><img
-								src="https://www.loveandoliveoil.com/wp-content/uploads/2015/03/soy-sauce-noodlesH2.jpg"
-								class="card-img-top" alt="Picture of Recipe"></div>
-						<div class="card-body">
-							<h5 class="card-title" id="title"></h5>
-							<p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span id="ready-time"></span> minutes.</p>
-							<p>Health Score <span id="health-score"></span></p>
-							<p class="card-text" id="summary"></p>
-							<p id="card-t"></p>
-							<p id="fullRecipe"></p>
-							<a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
-								title="Add to Favorites"><i class="far fa-star"></i></a>
-						</div>
-					</div>
-					<!-- card for a search result -->
-					<div class="card recipe-card">
-						<div class="recipe-image"><img
-								src="https://www.thespruceeats.com/thmb/SJ78x54IXuWOj4zAujp14oLqmmM=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/_easy-red-lentil-and-tomato-soup-435639-hero-01-5bd0802c46e0fb005164176b.jpg"
-								class="card-img-top" alt="Picture of Recipe"></div>
-						<div class="card-body">
-							<h5 class="card-title" id="title2">Recipe Name</h5>
-							<p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span
-									id="ready-time2"></span> minutes.</p>
-							<p>Health Score <span id="health-score"></span></p>
-							<p class="card-text" id="summary2">Quick description of the recipe</p>
-							<p id="card-t"></p>
-							<a href="#" class="btn btn-primary" id="fullRecipe">View Full Recipe</a>
-							<a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
-								title="Add to Favorites"><i class="far fa-star"></i></a>
-						</div>
-					</div>
-					<!-- card for a search result -->
-					<div class="card recipe-card">
-						<div class="recipe-image"><img
-								src="https://cookieandkate.com/images/2019/02/best-shakshuka-recipe-3-768x1154.jpg"
-								class="card-img-top" alt="Picture of Recipe"></div>
-						<div class="card-body">
-							<h5 class="card-title" id="title3">Recipe Name</h5>
-							<p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span
-									id="ready-time3"></span> minutes.</p>
-							<p>Health Score <span id="health-score"></span></p>
-							<p class="card-text" id="summary">Quick description of the recipe</p>
-							<p id="card-t"></p>
-							<a href="#" class="btn btn-primary" id="fullRecipe">View Full Recipe</a>
-							<a href="#" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"
-								title="Add to Favorites"><i class="far fa-star"></i></a>
-						</div>
-					</div>
+				<div class="col-8 search-results" id="recipeCards">
 					<div>
 					</div>
-					<button id="list">Make a shopping list</button>
 				</div>
 			</div>
 		</div>

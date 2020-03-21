@@ -1,10 +1,3 @@
-
-//$(document).ready(function(){
-//    randomRecipe();
-//});
-
-
-
 // on click of the button to make a shopping list. A modal will popup unless the screen is too small, and then it will open a new tab. uses whisk API, allows user to login to a whisk account if they want to
 $("#list").on("click", function(event){
     whisk.queue.push(function() {
@@ -27,7 +20,7 @@ $(function() {
 });
 
 //Firebase
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBBSocOVu5wauuBtjv7VxBqfAfxxYpUlak",
     authDomain: "foodle-28d8f.firebaseapp.com",
     databaseURL: "https://foodle-28d8f.firebaseio.com",
@@ -45,9 +38,9 @@ var data = firebase.database();
 //variables
 //for search query
 var number = 2;
-//var apiKey = "633d97f5523a4f86a9b9fc20e109b345";
-//var apiKey = "686bf77ea40940eca86366d063e7137d";
-var apiKey="d8bfae19e3cf4d1fbebcc79439a972e3"
+var apiKey = "633d97f5523a4f86a9b9fc20e109b345";
+// var apiKey = "686bf77ea40940eca86366d063e7137d";
+// var apiKey="d8bfae19e3cf4d1fbebcc79439a972e3"
 var idNum;
 var ingredientsEntered = [ ];
 var ingredients;
@@ -143,11 +136,10 @@ function searchComplex(){
 //get recipes
 function getRecipesById() {
     var queryURL ="https://api.spoonacular.com/recipes/informationBulk?ids=" + idNum + "&apiKey=" + apiKey;
-    $.ajax({
+    return $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
         recipeImg = response[0].image;
         title = response[0].title;
         readyInMinutes = response[0].readyInMinutes;
@@ -155,11 +147,9 @@ function getRecipesById() {
         summary = response[0].summary;
         sourceUrl = response[0].sourceUrl;
         idNum=response[0].id
-        data.ref().push({
-            IDnum: idNum
-        });
         
-        createRecipeCard();
+        // createRecipeCard();
+        return createRecipeCard();
     });
 }
 
@@ -179,6 +169,7 @@ function randomRecipe() {
         healthScore = response.recipes[0].healthScore;
         summary = response.recipes[0].summary;
         sourceUrl = response.recipes[0].sourceUrl;
+        idNum = response.recipes[0].id
         createRecipeCard();
         valueReset();
     });
@@ -198,42 +189,54 @@ function valueReset(){
 }
 
 function createRecipeCard(){
-    console.log("this was called");
-    recipeCard = '<div class="card recipe-card"><div id="recipe-image"><img src="' + recipeImg + '"class="card-img-top" alt="Picture of Recipe"></div><div class="card-body"><h5 class="card-title" id="title">' + title + '</h5><p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span id="ready-time">' + readyInMinutes + '</span> minutes.</p><p>Health Score <span id="health-score">' + healthScore + '</span></p><p class="card-text" id="summary">' + summary + '</p><p id="fullRecipe"></p><a href="' + sourceUrl + '" class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right"title="Add to Favorites"><i class="far fa-star"></i></a></div>'
+    recipeCard = $('<div class="card recipe-card" id="' + idNum + '"><div class="recipe-image"><img src="'+ recipeImg + '" class="card-img-top" alt="Picture of Recipe"></div><div class="card-body"><h5 class="card-title" id="title">' + title + '</h5><p><i class="fas fa-clock" style="color: #f7941e;"></i> Ready in <span id="ready-time">' + readyInMinutes + '</span> minutes.</p><p>Health Score <span id="health-score">' + healthScore +'</span></p><p class="card-text" id="summary">'+ summary +'</p><a id="card-t"><a href="'+ sourceUrl +'" class="btn btn-primary" id="fullRecipe">View Full Recipe</a><a class="btn add-to-favorites-button" data-toggle="tooltip" data-placement="right" title="Add to Favorites"><i class="far fa-star" data-state="false" data-recipeNum="' + idNum + '"></i></a></p></div></div>');
     $("#recipeCards").append(recipeCard);
+    $(recipeCard).find(".fa-star").click(function() {
+        $(this).toggleClass("fas far");
+
+        var IDnum = $(this).attr("data-recipeNum");
+
+        var state = $(this).attr("data-state");
+        if (state === "false"){
+            $(this).attr("data-state", "true");
+            data.ref().push(IDnum);
+        }
+        else {
+            $(this).attr("data-state", "false");
+            var favID = $(this).attr("id");
+            var deleteFav = firebase.database().ref(favID);
+            deleteFav.remove();
+            $("#"+IDnum).empty();
+        }
+    })
     valueReset();
-}
+    return recipeCard;
+};
+    
+    //if the img is in the array then delete it
+    //if it isnt in the array then add it
+    //this is only pushing the star... need to have it push the gif in the array... 
+    
+    
 
 //favRecipes is a function that will be called when the fav. page is loaded (html body tag calls this function) This is set up to create a recipe card with a recipe idNum. 
 function favRecipes(){
     //saved recipes id numbers will be pulled from firebase 
     //and below will create the recipes saved
-    data.ref().on('child_added', function(childSnapshot) {
-        console.log(childSnapshot.val().IDnum);
-        num =childSnapshot.val().IDnum;
-        console.log(num)
-        
-   
-    
-    
-        var queryURL ="https://api.spoonacular.com/recipes/informationBulk?ids=" + num + "&apiKey=" + apiKey;
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-            console.log(response);
-            ecipeImg = response[0].image;
-            title = response[0].title;
-            readyInMinutes = response[0].readyInMinutes;
-            healthScore = response[0].healthScore;
-            summary = response[0].summary;
-            sourceUrl = response[0].sourceUrl;
-            idNum=response[0].id
-            createRecipeCard();
-        });
-    
-    
-     });
+    data.ref().on('child_added', function(snapshot) {
+        console.log("this is happening");
+        idNum = snapshot.val();
 
+        var uid = snapshot.key;
 
-}
+        getRecipesById().then(function(recipeCard) {
+            const favoriteButton = $(recipeCard).find(".fa-star");
+
+            favoriteButton.attr("id", uid);
+            favoriteButton.attr("data-state", "true");
+            favoriteButton.attr("class", "fas fa-star");
+            
+            $(recipeCard).find(".fa-star").attr("id", uid);
+        })
+    });
+};

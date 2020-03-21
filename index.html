@@ -21,7 +21,7 @@
 
 <body onload="randomRecipe()">
 	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light">
+	<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -34,9 +34,10 @@
 				<li class="nav-item">
 					<a class="nav-link" href="favorites.html">Favorites</a>
 				</li>
-				<li>
-					<button id="list">Make a shopping list</button></li>
 			</ul>
+			<div class="navbar-right form-inline my-2 my-lg-0">
+				<button type=button class="btn btn-primary btn-shopping-list my-2 my-sm-0" id="list">Make a shopping list</button>
+			</div>
 		</div>
 	</nav>
 	<!-- contianer for search parameters and results-->

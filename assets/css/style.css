@@ -246,3 +246,9 @@ h5 {
     border: 1px solid #051533;
     border-radius: 5px;
 }
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+}
+

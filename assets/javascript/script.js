@@ -155,9 +155,7 @@ function getRecipesById() {
         summary = response[0].summary;
         sourceUrl = response[0].sourceUrl;
         idNum=response[0].id
-        data.ref().push({
-            IDnum: idNum
-        });
+        
         
         createRecipeCard();
     });
@@ -203,7 +201,29 @@ function createRecipeCard(){
     $("#recipeCards").append(recipeCard);
     valueReset();
 }
+$('[data-toggle="tooltip"]').on("click", function(){
 
+    idNum=response[0].id
+    data.ref().push({
+        IDnum: idNum
+    });
+
+
+
+
+    
+
+
+
+});
+
+//deleting data
+$('[data-toggle="tooltip"]').on('click', '.remove-button', function() {
+    var newIDnum= $(this).parent().parent().attr('data-id');
+    var deleteTrain = firebase.database().ref(newIDnum);
+    deleteTrain.remove();
+    
+});
 //favRecipes is a function that will be called when the fav. page is loaded (html body tag calls this function) This is set up to create a recipe card with a recipe idNum. 
 function favRecipes(){
     //saved recipes id numbers will be pulled from firebase 
@@ -222,7 +242,7 @@ function favRecipes(){
             method: "GET"
         }).then(function(response) {
             console.log(response);
-            ecipeImg = response[0].image;
+            recipeImg = response[0].image;
             title = response[0].title;
             readyInMinutes = response[0].readyInMinutes;
             healthScore = response[0].healthScore;
@@ -230,7 +250,12 @@ function favRecipes(){
             sourceUrl = response[0].sourceUrl;
             idNum=response[0].id
             createRecipeCard();
+
+           
+        
         });
+
+        
     
     
      });
